@@ -65,12 +65,7 @@ const certificate = readFileSync(config["ssl"]["certificate"]).toString()
 
 const credentials = {key: privateKey, cert: certificate};
 
-var httpsServer
-if(DID_I_FINALLY_ADD_HTTPS) {
-  httpsServer = https.createServer(credentials, app);
-  httpsServer.listen(config["ports"]["https"],function(){
+const httpsServer = https.createServer(credentials, app);
+httpsServer.listen(config["ports"]["https"],function(){
     console.log(5,"HTTPS Server is listening")
-  });
-} else {
-  httpsServer = httpServer
-}
+});
