@@ -7,6 +7,7 @@
   },
   "name": "syncr",
   "version": "1.0.0",
+  "type": "module",
   "description": "Syncr provides a way to view your roblox game stats in supported games via a website",
   "main": "index.js",
   "devDependencies": {},
