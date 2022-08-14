@@ -25,6 +25,12 @@ const con = createPool({
 app.use(bodyParser.json({ limit: "100mb" }));
 app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
 
+router.any(function(req,res,next) {
+    console.log(req.protocol + '://' + req.get('host') + req.originalUrl)
+
+    next()
+})
+
 router.post("/check",function(req,res) {
     console.log(req.body)
 
