@@ -20,7 +20,11 @@ const con = createPool({
     password: readFileSync(config.mysql.password_file).toString()
 });
 
+app.use(function(req,res,next) {
+    console.log(req.protocol + '://' + req.get('host') + req.originalUrl)
 
+    next()
+})
 
 app.use(bodyParser.json({ limit: "100mb" }));
 app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
