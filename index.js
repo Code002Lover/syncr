@@ -60,8 +60,8 @@ httpServer.listen(config["ports"]["http"],function(){
   console.log(5,"HTTP Server is listening")
 });
 
-const privateKey = fs.readFileSync(config["ssl"]["privateKey"]).toString()
-const certificate = fs.readFileSync(config["ssl"]["certificate"]).toString()
+const privateKey = readFileSync(config["ssl"]["privateKey"]).toString()
+const certificate = readFileSync(config["ssl"]["certificate"]).toString()
 
 const credentials = {key: privateKey, cert: certificate};
 
