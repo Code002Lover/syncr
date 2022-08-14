@@ -11,6 +11,8 @@ import "unsafe_encrypt"
 const router = Router();
 const app = express();
 
+const config = JSON.parse(readFileSync("server_config.json"))
+
 const con = createPool({
     connectionLimit : config.mysql.connections,
     host: config.mysql.host,
@@ -18,7 +20,7 @@ const con = createPool({
     password: readFileSync(config.mysql.password_file).toString()
 });
 
-const config = JSON.parse(readFileSync("server_config.json"))
+
 
 app.use(bodyParser.json({ limit: "100mb" }));
 app.use(bodyParser.urlencoded({ limit: "100mb", extended: true }));
